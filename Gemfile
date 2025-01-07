@@ -69,3 +69,6 @@ gem 'cssbundling-rails'
 gem 'actiontext'
 
 gem 'trix'
+
+
+gem 'dotenv-rails', groups: [:development, :test]
