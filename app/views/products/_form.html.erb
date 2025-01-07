@@ -1,0 +1,23 @@
+<%= form_with model: @product, class: "container mt-4" do |form| %>
+
+  <!-- Name Field -->
+  <div class="mb-3">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control", placeholder: "Enter product name" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :description, class: "form-label" %>
+    <%= form.text_area :description, class: "form-control", rows: 5 %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :inventory_count, class: "form-label" %>
+    <%= form.number_field :inventory_count, class: "form-control" %>
+  </div>
+
+  <div class="mt-4">
+    <%= form.submit "Update Product", class: "btn btn-primary w-100" %>
+  </div>
+
+<% end %>

@@ -1,0 +1,16 @@
+<h1 class="text-center my-4">New Product</h1>
+
+<%= form_with model: @product, class: "container p-4 border rounded shadow", local: true do |form| %>
+
+  <div class="mb-3">
+    <%= form.label :featured_image, class: "form-label" %>
+    <%= form.file_field :featured_image, accept: "image/*", class: "form-control" %>
+  </div>
+
+  <%= render "form", product: @product %>
+
+  <div class="d-flex justify-content-between mt-4">
+    <%= link_to "Cancel", products_path, class: "btn btn-secondary" %>
+  </div>
+<% end %>
+
