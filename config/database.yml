@@ -85,7 +85,7 @@ production:
   primary: &primary_production
     <<: *default
     database: store_production
-    url: <%= ENV['DATABASE_URL'] %>
+    url: postgresql://store:MhjXSXiGQi3sUYmFXThyriWkeTwDaWwj@dpg-ctug2sdds78s73fnji5g-a/store_gyvh
 
 
   cache:
