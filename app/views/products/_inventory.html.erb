@@ -1,11 +1,18 @@
 <% if product.inventory_count? %>
-  <p><%= product.inventory_count %> in stock</p>
+  <p class="text-success fw-bold"><%= product.inventory_count %> in stock</p>
 <% else %>
-  <p>Out of stock</p>
-  <p>Email me when available.</p>
+  <div class="card border-0 shadow-sm p-4">
+    <p class="text-danger fw-bold">Out of stock</p>
+    <p class="text-muted">Email me when available:</p>
 
-  <%= form_with model: [product, Subscriber.new] do |form| %>
-    <%= form.email_field :email, placeholder: "you@example.com", required: true %>
-    <%= form.submit "Submit" %>
-  <% end %>
+    <%= form_with model: [product, Subscriber.new], class: "d-flex flex-column align-items-start" do |form| %>
+      <div class="mb-3 w-100">
+        <%= form.email_field :email, class: "form-control", placeholder: "you@example.com", required: true %>
+      </div>
+      <div>
+        <%= form.submit "Submit", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
 <% end %>
+

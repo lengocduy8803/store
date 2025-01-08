@@ -2,18 +2,28 @@
 
 <%= link_to "New Product", new_product_path, class: "btn btn-success mb-4" if authenticated? %>
 
-<div id="products" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-  <% @products.each do |product| %>
-    <div class="col">
-      <div class="card shadow-sm border-light rounded overflow-hidden h-100 hover-zoom">
-        <%= link_to product_path(product), class: "product-link text-decoration-none text-dark" do %>
-          <!-- Thêm hiệu ứng zoom cho hình ảnh -->
-          <%= image_tag product.featured_image, alt: product.name, class: "card-img-top rounded-top img-fluid transition-transform" if product.featured_image.attached? %>
-          <div class="card-body">
-            <h5 class="card-title text-truncate" style="max-width: 100%"><%= product.name %></h5>
-          </div>
-        <% end %>
+
+
+
+<div class="container p-4 shadow-sm rounded" style="background-color: #f0f0f0;">
+  <div id="products" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+    <% @products.each do |product| %>
+      <div class="col">
+        <div class="card shadow-sm border-light rounded overflow-hidden h-100 hover-zoom">
+          <%= link_to product_path(product), class: "product-link text-decoration-none text-dark" do %>
+            <!-- Thêm hiệu ứng zoom cho hình ảnh -->
+            <%= image_tag product.featured_image, alt: product.name, class: "card-img-top rounded-top img-fluid transition-transform" if product.featured_image.attached? %>
+            <div class="card-body">
+              <h5 class="card-title text-truncate" style="max-width: 100%"><%= product.name %></h5>
+            </div>
+          <% end %>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
+
+
+
+
+<h1 style="margin-top: 140px;"></h1>
