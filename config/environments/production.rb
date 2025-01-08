@@ -89,7 +89,7 @@ Rails.application.configure do
 
 
   config.public_file_server.enabled = true
-  config.assets.compile = true  # Đảm bảo tài nguyên được biên dịch trước khi deploy
+  config.assets.compile = false  # Đảm bảo tài nguyên được biên dịch trước khi deploy
   
 
 
