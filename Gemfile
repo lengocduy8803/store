@@ -72,3 +72,6 @@ gem 'trix'
 
 
 gem 'dotenv-rails', groups: [:development, :test]
+
+
+gem 'kaminari'

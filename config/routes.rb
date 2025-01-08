@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   get "signup", to: "passwords#new_registration", as: :new_registration
   post "signup", to: "passwords#create_registration", as: :create_registration
 
-  
+  resources :products, only: [:index]
+
 end
