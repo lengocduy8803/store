@@ -1,0 +1,22 @@
+<h1>Đăng ký tài khoản</h1>
+
+<%= form_with model: @user, url: create_registration_path, local: true do |form| %>
+  <div>
+    <%= form.label :email_address, "Địa chỉ Email" %>
+    <%= form.email_field :email_address, placeholder: "Nhập email của bạn" %>
+  </div>
+
+  <div>
+    <%= form.label :password, "Mật khẩu" %>
+    <%= form.password_field :password, placeholder: "Nhập mật khẩu" %>
+  </div>
+
+  <div>
+    <%= form.label :password_confirmation, "Xác nhận Mật khẩu" %>
+    <%= form.password_field :password_confirmation, placeholder: "Nhập lại mật khẩu" %>
+  </div>
+
+  <div>
+    <%= form.submit "Đăng ký" %>
+  </div>
+<% end %>

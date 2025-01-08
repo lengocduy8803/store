@@ -1,6 +1,6 @@
 <h1 class="page-title text-center text-primary my-5 font-weight-bold"><%= t "Products" %></h1>
 
-<%= link_to "New Product", new_product_path, class: "btn btn-success mb-4" %>
+<%= link_to "New Product", new_product_path, class: "btn btn-success mb-4" if authenticated? %>
 
 <div id="products" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
   <% @products.each do |product| %>

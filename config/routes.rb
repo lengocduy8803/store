@@ -13,4 +13,8 @@ Rails.application.routes.draw do
 
   root "products#index"
 
+  get "signup", to: "passwords#new_registration", as: :new_registration
+  post "signup", to: "passwords#create_registration", as: :create_registration
+
+  
 end
