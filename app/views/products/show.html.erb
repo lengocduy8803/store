@@ -3,13 +3,11 @@
 </p>
 
 <section class="product container my-4">
-  <!-- Product Image -->
   <div class="row">
     <div class="col-md-6">
       <%= image_tag @product.featured_image, class: "img-fluid rounded shadow-sm" if @product.featured_image.attached? %>
     </div>
 
-    <!-- Product Info -->
     <div class="col-md-6">
       <section class="product-info">
         <% cache @product do %>
@@ -17,7 +15,6 @@
           <p class="text-muted"><%= @product.description %></p>
         <% end %>
 
-        <!-- Inventory -->
         <div class="mt-4">
           <%= render "inventory", product: @product %>
         </div>
