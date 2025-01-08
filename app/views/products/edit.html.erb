@@ -3,6 +3,16 @@
 <div class="container p-4 border rounded shadow">
   <%= form_with model: @product, local: true do |form| %>
 
+    <div class="mb-3">
+    <%= form.label :featured_image, class: "form-label" %>
+    <%= form.file_field :featured_image, accept: "image/*", class: "form-control"  %>   
+    <% if @product.featured_image.attached? %>
+    <small class="form-text text-muted">Current image: <%= @product.featured_image.filename.to_s %></small>
+  <% else %>
+    <small class="form-text text-muted">No image selected</small>
+  <% end %> 
+  </div>
+  
     <%= render "form", product: @product %>
 
   

@@ -2,6 +2,8 @@ class Product < ApplicationRecord
 
   has_rich_text :description
 
+
+  
     include Notifications
 
     has_many :subscribers, dependent: :destroy

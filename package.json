@@ -20,7 +20,6 @@
     "watch:css": "nodemon --watch ./app/assets/stylesheets/ --ext scss --exec \"yarn build:css\"",
     "build": "esbuild app/assets/stylesheets/application.css --outfile=app/assets/builds/application.css",
     "watch": "esbuild app/javascript/application.js --bundle --watch --outfile=app/assets/builds/application.js"
-
   },
   "browserslist": [
     "defaults"
