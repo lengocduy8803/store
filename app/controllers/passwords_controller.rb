@@ -8,11 +8,16 @@ class PasswordsController < ApplicationController
   end
   def create_registration
     @user = User.new(user_params)
-  
-    if @user.save
-      redirect_to new_session_path, notice: "Tài khoản đã được tạo thành công! Vui lòng đăng nhập."
-    else
-      flash.now[:alert] = "Đã xảy ra lỗi. Vui lòng kiểm tra lại thông tin đăng ký."
+
+    begin
+      if @user.save
+        redirect_to new_session_path, notice: "Tài khoản đã được tạo thành công! Vui lòng đăng nhập."
+      else
+        flash.now[:notice] = "Đã xảy ra lỗi. Vui lòng kiểm tra lại thông tin đăng ký."
+        render :new_registration, status: :unprocessable_entity
+      end
+    rescue ActiveRecord::RecordNotUnique => e
+      flash.now[:notice] = "Email đã tồn tại. Vui lòng chọn email khác."
       render :new_registration, status: :unprocessable_entity
     end
   end
@@ -31,7 +36,11 @@ class PasswordsController < ApplicationController
     redirect_to new_session_path, notice: "Password reset instructions sent (if user with that email address exists)."
   end
 
+
+
+
   def edit
+
   end
 
   def update
@@ -42,6 +51,13 @@ class PasswordsController < ApplicationController
     end
   end
 
+  def find_user_by_token
+    @user = User.find_by_reset_password_token(params[:token])
+  end
+
+
+
+
   private
     def set_user_by_token
       @user = User.find_by_password_reset_token!(params[:token])
@@ -51,5 +67,8 @@ class PasswordsController < ApplicationController
 
     def user_params
       params.require(:user).permit(:email_address, :password, :password_confirmation)
+    end
+    def password_params
+      params.require(:user).permit(:password, :password_confirmation)
     end
 end

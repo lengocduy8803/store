@@ -17,5 +17,9 @@ Rails.application.routes.draw do
   post "signup", to: "passwords#create_registration", as: :create_registration
 
   resources :products, only: [:index]
+ 
+
+
+  
 
 end
